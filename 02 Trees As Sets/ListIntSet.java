@@ -9,11 +9,13 @@ public class ListIntSet implements IntSet {
 	}
 	
 	public void add(int number) {
-		if(this.next == null) {
-			this.next = new ListIntSet(number);
-		}
-		else {
-			this.next.add(number);
+		if(!this.contains(number)) { // We check for duplicates and proceed if not already there!
+			if(this.next == null) {
+				this.next = new ListIntSet(number);
+			}
+			else {
+				this.next.add(number);
+			}
 		}
 	}
 	
@@ -49,7 +51,7 @@ public class ListIntSet implements IntSet {
 			return this.number + "";
 		}
 		else {
-			return this.number + " " + this.next.toString();
+			return this.number + ", " + this.next.toString();
 		}
 	}
 

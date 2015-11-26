@@ -11,24 +11,26 @@ public class TreeIntSet implements IntSet {
 	}
 	
 	public void add(int number) {
-		if(number > this.number) {
-			if(this.right == null) {
-				TreeIntSet temp = new TreeIntSet(number);
-				this.right = temp;
-				return;
+		if(!this.contains(number)) { // We check for duplicates and proceed if not already there!
+			if(number > this.number) {
+				if(this.right == null) {
+					TreeIntSet temp = new TreeIntSet(number);
+					this.right = temp;
+					return;
+				}
+				else {
+					this.right.add(number);
+				}
 			}
 			else {
-				this.right.add(number);
-			}
-		}
-		else {
-			if(this.left == null) {
-				TreeIntSet temp = new TreeIntSet(number);
-				this.left = temp;
-				return;
-			}
-			else {
-				this.left.add(number);
+				if(this.left == null) {
+					TreeIntSet temp = new TreeIntSet(number);
+					this.left = temp;
+					return;
+				}
+				else {
+					this.left.add(number);
+				}
 			}
 		}
 	}
@@ -77,13 +79,13 @@ public class TreeIntSet implements IntSet {
 			return this.number + "";
 		}
 		if(this.left == null) { // no left so return the number and the right side
-			return this.number + " " + this.right.toString();
+			return this.number + ", " + this.right.toString();
 		}
 		if(this.right == null) { // no right so return the number and the left side
-			return this.number + " " + this.left.toString();
+			return this.number + ", " + this.left.toString();
 		}
 		// has both left and right so return the number and both left and right sides
-		return this.number + " " + this.left.toString() + " " + this.right.toString();
+		return this.number + ", " + this.left.toString() + ", " + this.right.toString();
 	}
 
 }
