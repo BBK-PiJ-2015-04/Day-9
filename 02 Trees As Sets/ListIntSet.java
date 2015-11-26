@@ -49,7 +49,6 @@ public class ListIntSet implements IntSet {
 			return this.number + "";
 		}
 		else {
-			
 			return this.number + " " + this.next.toString();
 		}
 	}

@@ -73,7 +73,17 @@ public class TreeIntSet implements IntSet {
 	}
 	
 	public String toString() {
-		return "Sorry but this method is too difficult for my tiny brain!";
+		if(this.left == null && this.right == null) { // no children so return the number
+			return this.number + "";
+		}
+		if(this.left == null) { // no left so return the number and the right side
+			return this.number + " " + this.right.toString();
+		}
+		if(this.right == null) { // no right so return the number and the left side
+			return this.number + " " + this.left.toString();
+		}
+		// has both left and right so return the number and both left and right sides
+		return this.number + " " + this.left.toString() + " " + this.right.toString();
 	}
 
 }

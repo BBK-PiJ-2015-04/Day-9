@@ -21,6 +21,7 @@ public class Main {
 		
 		System.out.println(root.containsVerbose(number)? "Bingo!" : "Not found :(");
 		
+		System.out.println(root.toString());
 		
 		ListIntSet start = new ListIntSet(50);
 		
