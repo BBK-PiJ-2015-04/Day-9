@@ -13,8 +13,7 @@ public class IntegerTreeNode {
 	public void addNumber(int value) {
 		if(value > this.value) {
 			if(this.right == null) {
-				IntegerTreeNode temp = new IntegerTreeNode(value);
-				this.right = temp;
+				this.right = new IntegerTreeNode(value);
 				return;
 			}
 			else {
@@ -23,8 +22,7 @@ public class IntegerTreeNode {
 		}
 		else {
 			if(this.left == null) {
-				IntegerTreeNode temp = new IntegerTreeNode(value);
-				this.left = temp;
+				this.left = new IntegerTreeNode(value);
 				return;
 			}
 			else {
@@ -71,27 +69,16 @@ public class IntegerTreeNode {
 	}
 	
 	public String toString() {
-		String str = "";
-		str = str;
-		return "John";
+		if(this.left == null && this.right == null) {
+			return "[" + this.value + " L[] R[]]";
+		}
+		if(this.left == null) {
+			return this.value + " R[" + this.right.toString();
+		}
+		if(this.right == null) {
+			return this.value + " L[" + this.left.toString();
+		}
+		return this.value + " L[" + this.left.toString() + " R[" + this.right.toString();
 	}
 	
-	public static void main(String[] args) {
-		
-		IntegerTreeNode root = new IntegerTreeNode(5);
-		
-		for(int i = 0; i < 20; i++) {
-			int number = (int) (Math.random() * 100);
-			System.out.println(number);
-			root.addNumber(number);
-		}
-		
-		System.out.println(root.getMax());
-		System.out.println(root.getMin());
-		
-		System.out.println(root.toString());
-		
-		System.out.println(root.contains(10));
-		
-	}
 }
