@@ -10,14 +10,14 @@ public class IntegerTreeNode {
 		this.right = null;
 	}
 	
-	public void addNumber(int value) {
+	public void add(int value) {
 		if(value > this.value) {
 			if(this.right == null) {
 				this.right = new IntegerTreeNode(value);
 				return;
 			}
 			else {
-				this.right.addNumber(value);
+				this.right.add(value);
 			}
 		}
 		else {
@@ -26,7 +26,7 @@ public class IntegerTreeNode {
 				return;
 			}
 			else {
-				this.left.addNumber(value);
+				this.left.add(value);
 			}
 		}
 	}
@@ -87,18 +87,16 @@ public class IntegerTreeNode {
 		return str;
 	}
 	
-	/*
-	public String toString() {
-		if(this.left == null && this.right == null) {
-			return "[" + this.value + " L[] R[]]";
+	public String toStringSimplified() {
+		String str = "[" + this.value + "";
+		if(this.left != null) {
+			str = str + " " + this.left.toStringSimplified();
 		}
-		if(this.left == null) {
-			return this.value + " R[" + this.right.toString();
+		if(this.right != null) {
+			str = str + " " + this.right.toStringSimplified();
 		}
-		if(this.right == null) {
-			return this.value + " L[" + this.left.toString();
-		}
-		return this.value + " L[" + this.left.toString() + " R[" + this.right.toString();
+		str = str + "]";
+		return str;
 	}
-	*/
+	
 }
